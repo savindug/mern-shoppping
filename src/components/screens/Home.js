@@ -12,7 +12,9 @@ export const Home = () => {
           calling extra attention to featured content or information.
         </p>
         <p>
-          <Button variant="primary">Learn more</Button>
+          <Button variant="primary" href="/products">
+            Products
+          </Button>
         </p>
       </Jumbotron>
     </div>

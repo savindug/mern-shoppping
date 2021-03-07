@@ -3,26 +3,31 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
-import style from '../../styles/login.module.css';
+import style from '../../../styles/login.module.css';
 
-export const Register = () => {
-  const [username, setUsername] = useState(null);
+export const Login = () => {
   const [email, setEmail] = useState(null);
   const [pwd, setPwd] = useState(null);
-  const [c_pwd, setCpwd] = useState(null);
   const [validated, setValidated] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-  const handleSubmit = (event) => {
+  const formSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+    if (form.checkValidity() === false && email == null && pwd == null) {
       event.stopPropagation();
+      return;
     }
 
-    console.log(
-      `username: ${username}, email: ${email}, pwd: ${pwd}, c_pwd: ${c_pwd}`
-    );
-    setValidated(true);
+    if (toggle) {
+      console.log(`username: ${email}, pwd ${pwd}`);
+    }
+
+    setValidated(form.checkValidity());
+  };
+
+  const onToggle = (event) => {
+    setToggle(event.target.checked);
   };
 
   useEffect(() => {});
@@ -37,19 +42,11 @@ export const Register = () => {
           width="72"
           height="57"
         />
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Form.Group controlId="formUsername">
+        <Form noValidate validated={validated} onSubmit={formSubmit}>
+          <Form.Group controlId="formUser">
             <Form.Control
               type="text"
-              placeholder="Enter Username"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="formEmail">
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
+              placeholder="Email or Username"
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
@@ -61,28 +58,23 @@ export const Register = () => {
               onChange={(e) => setPwd(e.target.value)}
             />
           </Form.Group>
-
-          <Form.Group controlId="formC_Password">
-            <Form.Control
-              type="password"
-              placeholder="Confirm Password"
-              onChange={(e) => setCpwd(e.target.value)}
+          <Form.Group controlId="formCheckbox">
+            <Form.Check
+              type="switch"
+              label="Keep me signed in"
+              onChange={onToggle}
             />
-          </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="switch" label="I Accept Terms & Conditions" />
           </Form.Group>
           <Button
             variant="primary"
             type="submit"
             className="w-100 btn btn-lg btn-primary"
           >
-            Register
+            Login
           </Button>
-
           <Form.Group className="mt-3 text-center">
-            <Link className="text-decoration-none" to="/login">
-              Already an User?
+            <Link className="text-decoration-none" to="/register">
+              A New User?
             </Link>
           </Form.Group>
         </Form>
