@@ -42,9 +42,9 @@ export const Register = () => {
     toogleSubmit();
   }, [toggle]);
 
-  const getClasses = (e) => {
-    console.log(`btn-class => ${e.target.className}`);
-  };
+  // const getClasses = (e) => {
+  //   console.log(`btn-class => ${e.target.className}`);
+  // };
 
   return (
     <Container className={style.form_container_flex}>
