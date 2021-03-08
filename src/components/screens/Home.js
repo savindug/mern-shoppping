@@ -1,6 +1,7 @@
 import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import { Products } from './products/Products';
 
 export const Home = () => {
   return (
@@ -17,6 +18,7 @@ export const Home = () => {
           </Button>
         </p>
       </Jumbotron>
+      <Products />
     </div>
   );
 };

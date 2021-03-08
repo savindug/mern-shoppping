@@ -20,7 +20,7 @@ export const Header = () => {
             </Button>
             <Button href="/cart" variant="info">
               <i className="fas fa-shopping-cart"></i>
-              <text className="mx-1">Cart</text>
+              <text className="mx-1"></text>
               <span className="badge badge-danger">0</span>
             </Button>
           </Form>
