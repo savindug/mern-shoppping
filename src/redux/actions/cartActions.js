@@ -1,4 +1,4 @@
-import * as ActionTypes from '../constants/cartConstants';
+import * as ActionTypes from '../const/cartConst';
 import axios from 'axios';
 
 const api = 'https://exp-auth-api.herokuapp.com';
@@ -6,7 +6,6 @@ const api = 'https://exp-auth-api.herokuapp.com';
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   const { data } = await axios.get(`${api}/products/${id}`);
 
-  console.log(`item recived: ${JSON.stringify(data)}`);
   dispatch({
     type: ActionTypes.ADD_TO_CART,
     payload: {

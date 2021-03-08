@@ -7,6 +7,7 @@ import { Login } from './components/screens/auth/Login';
 import { Register } from './components/screens/auth/Register';
 import { Products } from './components/screens/products/Products';
 import { Cart } from './components/screens/cart/Cart';
+import { ProductDeatails } from './components/screens/products/ProductDeatails';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/products" component={Products} />
           <Route path="/cart" component={Cart} />
+          <Route path="/product/:id" component={ProductDeatails} />
         </div>
       </Switch>
     </Router>
