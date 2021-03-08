@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import { Figure } from 'react-bootstrap';
 
 export const ProductItem = ({ id, img, name, price, description }) => {
